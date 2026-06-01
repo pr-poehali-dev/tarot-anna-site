@@ -20,14 +20,15 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['"Cormorant Garamond"', 'serif'],
+				display: ['"Cormorant"', 'serif'],
 				body: ['"Golos Text"', 'sans-serif']
 			},
 			colors: {
-				gold: '#d4af6a',
-				'gold-soft': '#e8d3a0',
-				night: '#0a0b14',
-				'night-deep': '#06070d',
+				cream: '#f4f1ea',
+				'cream-deep': '#ebe6db',
+				ink: '#1c1a17',
+				clay: '#8a7a63',
+				'clay-soft': '#b7a98f',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

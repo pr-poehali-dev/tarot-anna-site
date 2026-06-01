@@ -96,52 +96,15 @@
   }
 
   body {
-    @apply bg-night text-foreground font-body;
+    @apply bg-cream text-ink font-body;
   }
-}
-
-.text-gradient-gold {
-  background: linear-gradient(135deg, #e8d3a0 0%, #d4af6a 45%, #b8893f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.bg-mystic {
-  background:
-    radial-gradient(
-      ellipse 80% 50% at 50% -10%,
-      rgba(212, 175, 106, 0.12),
-      transparent
-    ),
-    radial-gradient(
-      ellipse 60% 50% at 90% 100%,
-      rgba(99, 71, 143, 0.18),
-      transparent
-    ),
-    radial-gradient(
-      ellipse 60% 50% at 10% 80%,
-      rgba(40, 52, 99, 0.2),
-      transparent
-    ),
-    #0a0b14;
-}
-
-.glass-gold {
-  background: rgba(20, 22, 38, 0.55);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 106, 0.18);
-}
-
-.glass-gold:hover {
-  border-color: rgba(212, 175, 106, 0.45);
 }
 
 .hairline {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(212, 175, 106, 0.5),
+    rgba(138, 122, 99, 0.4),
     transparent
   );
 }

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
-import { Button } from '@/components/ui/button';
 
 const HERO_IMG =
   'https://cdn.poehali.dev/projects/1e8cde08-419c-4da0-892f-78281648c1b5/files/c773ce82-add9-4466-af8a-e4c3965ef868.jpg';
@@ -15,70 +14,25 @@ const NAV = [
 ];
 
 const SERVICES = [
-  {
-    icon: 'Heart',
-    title: 'Расклад на отношения',
-    desc: 'Узнаете чувства партнёра, перспективы союза и путь к гармонии.',
-    duration: '60 мин',
-    price: '3 500 ₽',
-  },
-  {
-    icon: 'Compass',
-    title: 'Жизненный путь',
-    desc: 'Направление, предназначение и ключевые повороты вашей судьбы.',
-    duration: '90 мин',
-    price: '5 000 ₽',
-  },
-  {
-    icon: 'Coins',
-    title: 'Финансы и карьера',
-    desc: 'Денежные потоки, рабочие решения и время для важных шагов.',
-    duration: '60 мин',
-    price: '4 000 ₽',
-  },
-  {
-    icon: 'Moon',
-    title: 'Расклад на год',
-    desc: 'Подробная карта 12 месяцев — события, риски и возможности.',
-    duration: '120 мин',
-    price: '7 500 ₽',
-  },
-  {
-    icon: 'Sparkles',
-    title: 'Быстрый вопрос',
-    desc: 'Один точный вопрос — один ясный ответ от карт здесь и сейчас.',
-    duration: '30 мин',
-    price: '2 000 ₽',
-  },
-  {
-    icon: 'Eye',
-    title: 'Глубокая диагностика',
-    desc: 'Энергетика, блоки и кармические узлы вашей ситуации.',
-    duration: '90 мин',
-    price: '6 000 ₽',
-  },
+  { num: '01', title: 'Расклад на отношения', desc: 'Чувства партнёра, перспективы союза и путь к гармонии.', duration: '60 мин', price: '3 500 ₽' },
+  { num: '02', title: 'Жизненный путь', desc: 'Направление, предназначение и ключевые повороты судьбы.', duration: '90 мин', price: '5 000 ₽' },
+  { num: '03', title: 'Финансы и карьера', desc: 'Денежные потоки, рабочие решения и время для шагов.', duration: '60 мин', price: '4 000 ₽' },
+  { num: '04', title: 'Расклад на год', desc: 'Карта 12 месяцев — события, риски и возможности.', duration: '120 мин', price: '7 500 ₽' },
+  { num: '05', title: 'Быстрый вопрос', desc: 'Один точный вопрос — один ясный ответ здесь и сейчас.', duration: '30 мин', price: '2 000 ₽' },
+  { num: '06', title: 'Глубокая диагностика', desc: 'Энергетика, блоки и кармические узлы ситуации.', duration: '90 мин', price: '6 000 ₽' },
 ];
 
 const GALLERY = [
-  { icon: 'Sun', title: 'Кельтский крест', tag: '10 карт' },
-  { icon: 'Star', title: 'Звезда судьбы', tag: '7 карт' },
-  { icon: 'Heart', title: 'Расклад на любовь', tag: '5 карт' },
-  { icon: 'Moon', title: 'Лунный цикл', tag: '12 карт' },
+  { title: 'Кельтский крест', tag: '10 карт' },
+  { title: 'Звезда судьбы', tag: '7 карт' },
+  { title: 'Расклад на любовь', tag: '5 карт' },
+  { title: 'Лунный цикл', tag: '12 карт' },
 ];
 
 const REVIEWS = [
-  {
-    name: 'Екатерина',
-    text: 'Анна увидела то, о чём я не говорила вслух. Расклад попал в самую точку и дал силы двигаться дальше.',
-  },
-  {
-    name: 'Дмитрий',
-    text: 'Скептически относился к Таро, но консультация удивила точностью. Решение по работе оказалось верным.',
-  },
-  {
-    name: 'Марина',
-    text: 'Тёплая, чуткая и невероятно точная. После сессии стало спокойно на душе. Обязательно вернусь.',
-  },
+  { name: 'Екатерина', text: 'Анна увидела то, о чём я не говорила вслух. Расклад попал в точку и дал силы двигаться дальше.' },
+  { name: 'Дмитрий', text: 'Скептически относился к Таро, но консультация удивила точностью. Решение по работе оказалось верным.' },
+  { name: 'Марина', text: 'Тёплая, чуткая и невероятно точная. После сессии стало спокойно на душе. Обязательно вернусь.' },
 ];
 
 const SLOTS = [
@@ -89,24 +43,6 @@ const SLOTS = [
   { day: 'Пт', date: '6 июня', free: 2 },
 ];
 
-const Stars = () => (
-  <div className="pointer-events-none absolute inset-0 overflow-hidden">
-    {Array.from({ length: 40 }).map((_, i) => (
-      <span
-        key={i}
-        className="absolute rounded-full bg-gold-soft animate-twinkle"
-        style={{
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          width: `${Math.random() * 2 + 1}px`,
-          height: `${Math.random() * 2 + 1}px`,
-          animationDelay: `${Math.random() * 3}s`,
-        }}
-      />
-    ))}
-  </div>
-);
-
 const Index = () => {
   const [selected, setSelected] = useState<number | null>(3);
 
@@ -114,148 +50,112 @@ const Index = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <div className="bg-mystic min-h-screen text-foreground font-body relative overflow-x-hidden">
+    <div className="bg-cream min-h-screen text-ink font-body antialiased">
       {/* NAV */}
-      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-night-deep/60 border-b border-gold/10">
-        <nav className="container mx-auto flex items-center justify-between h-16 px-6">
-          <button onClick={() => scrollTo('hero')} className="flex items-center gap-2">
-            <Icon name="Moon" className="text-gold animate-float" size={22} />
-            <span className="font-display text-2xl tracking-wide text-gradient-gold">Анна · Таро</span>
+      <header className="fixed top-0 inset-x-0 z-50 bg-cream/80 backdrop-blur-md border-b border-ink/8">
+        <nav className="max-w-6xl mx-auto flex items-center justify-between h-20 px-6 lg:px-8">
+          <button onClick={() => scrollTo('hero')} className="font-display text-2xl tracking-tight">
+            Анна<span className="text-clay"> · Таро</span>
           </button>
-          <div className="hidden md:flex items-center gap-8 text-sm text-foreground/70">
+          <div className="hidden md:flex items-center gap-9 text-sm text-ink/60">
             {NAV.map((n) => (
-              <button
-                key={n.id}
-                onClick={() => scrollTo(n.id)}
-                className="hover:text-gold transition-colors"
-              >
+              <button key={n.id} onClick={() => scrollTo(n.id)} className="hover:text-ink transition-colors">
                 {n.label}
               </button>
             ))}
           </div>
-          <Button
+          <button
             onClick={() => scrollTo('booking')}
-            className="bg-gold hover:bg-gold-soft text-night font-medium rounded-full px-5"
+            className="text-sm border border-ink/20 rounded-full px-5 py-2.5 hover:bg-ink hover:text-cream transition-colors"
           >
             Записаться
-          </Button>
+          </button>
         </nav>
       </header>
 
       {/* HERO */}
-      <section id="hero" className="relative min-h-screen flex items-center pt-16">
-        <Stars />
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative z-10">
-            <div className="animate-fade-up flex items-center gap-2 text-gold/80 text-sm tracking-[0.3em] uppercase mb-6">
-              <span className="h-px w-8 bg-gold/50" /> Таролог · эзотерик
-            </div>
-            <h1
-              className="font-display text-5xl md:text-7xl leading-[1.05] mb-6 animate-fade-up"
-              style={{ animationDelay: '0.1s', opacity: 0 }}
-            >
-              Карты знают <br />
-              <span className="text-gradient-gold italic">ваш путь</span>
+      <section id="hero" className="max-w-6xl mx-auto px-6 lg:px-8 pt-40 pb-28">
+        <div className="grid md:grid-cols-12 gap-12 items-end">
+          <div className="md:col-span-7 animate-fade-up">
+            <p className="text-clay text-xs tracking-[0.35em] uppercase mb-8">Таролог · с 2016 года</p>
+            <h1 className="font-display font-light text-6xl md:text-8xl leading-[0.95] tracking-tight">
+              Ясность<br />в каждой<br /><span className="italic text-clay">карте</span>
             </h1>
-            <p
-              className="text-foreground/70 text-lg max-w-md mb-8 animate-fade-up"
-              style={{ animationDelay: '0.25s', opacity: 0 }}
-            >
-              Анна читает Таро более 9 лет. Помогает обрести ясность в любви,
-              деньгах и судьбе — мягко, честно и без страха.
+            <p className="text-ink/60 text-lg max-w-md mt-10 leading-relaxed">
+              Бережные расклады Таро для тех, кто ищет ответы о любви, деле и
+              судьбе. Без страха и осуждения — только честный разговор.
             </p>
-            <div
-              className="flex flex-wrap gap-4 animate-fade-up"
-              style={{ animationDelay: '0.4s', opacity: 0 }}
-            >
-              <Button
+            <div className="flex items-center gap-8 mt-10">
+              <button
                 onClick={() => scrollTo('booking')}
-                className="bg-gold hover:bg-gold-soft text-night font-medium rounded-full px-7 h-12 animate-glow"
+                className="bg-ink text-cream rounded-full px-8 py-4 text-sm tracking-wide hover:bg-clay transition-colors"
               >
                 Записаться на расклад
-              </Button>
-              <Button
-                onClick={() => scrollTo('services')}
-                variant="outline"
-                className="border-gold/40 text-gold hover:bg-gold/10 hover:text-gold-soft rounded-full px-7 h-12 bg-transparent"
-              >
-                Смотреть услуги
-              </Button>
+              </button>
+              <button onClick={() => scrollTo('services')} className="text-sm border-b border-ink/30 pb-1 hover:border-ink transition-colors">
+                Услуги и цены
+              </button>
             </div>
           </div>
-
-          <div className="relative animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0 }}>
-            <div className="absolute -inset-6 rounded-full bg-gold/10 blur-3xl" />
-            <div className="absolute inset-0 rounded-[2rem] border border-gold/20 animate-spin-slow" />
-            <img
-              src={HERO_IMG}
-              alt="Таролог Анна"
-              className="relative rounded-[2rem] w-full object-cover aspect-square shadow-2xl shadow-black/60"
-            />
+          <div className="md:col-span-5 animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0 }}>
+            <div className="aspect-[4/5] overflow-hidden rounded-sm">
+              <img src={HERO_IMG} alt="Таролог Анна" className="w-full h-full object-cover grayscale-[15%]" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="py-28 relative">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { n: '9+', l: 'лет практики' },
-              { n: '2 400', l: 'раскладов' },
-              { n: '780', l: 'клиентов' },
-              { n: '4.9', l: 'средний рейтинг' },
-            ].map((s) => (
-              <div key={s.l} className="glass-gold rounded-2xl p-6 text-center transition-colors">
-                <div className="font-display text-4xl text-gradient-gold">{s.n}</div>
-                <div className="text-foreground/60 text-sm mt-1">{s.l}</div>
-              </div>
-            ))}
+      <section id="about" className="border-t border-ink/8">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-28 grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <p className="text-clay text-xs tracking-[0.35em] uppercase">О Анне</p>
           </div>
-          <div>
-            <p className="text-gold/80 text-sm tracking-[0.3em] uppercase mb-4">О Анне</p>
-            <h2 className="font-display text-4xl md:text-5xl mb-6">
-              Проводник между <span className="text-gradient-gold italic">вопросом</span> и ответом
+          <div className="md:col-span-8">
+            <h2 className="font-display font-light text-4xl md:text-5xl leading-tight mb-10">
+              Проводник между вопросом и ответом
             </h2>
-            <p className="text-foreground/70 leading-relaxed mb-4">
+            <p className="text-ink/70 text-lg leading-relaxed mb-6 max-w-xl">
               Я начала изучать Таро как способ услышать себя — и со временем это
               стало моим призванием. Карты не предсказывают неизбежное, они
               показывают возможности и помогают сделать осознанный выбор.
             </p>
-            <p className="text-foreground/70 leading-relaxed">
-              На консультации нет осуждения и страшилок. Только бережный
-              разговор, честные образы карт и поддержка на вашем пути.
-            </p>
+            <div className="grid grid-cols-3 gap-8 mt-14 pt-10 border-t border-ink/8">
+              {[
+                { n: '9+', l: 'лет практики' },
+                { n: '2 400', l: 'раскладов' },
+                { n: '4.9', l: 'рейтинг' },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="font-display font-light text-5xl">{s.n}</div>
+                  <div className="text-ink/50 text-sm mt-2">{s.l}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="py-28">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-gold/80 text-sm tracking-[0.3em] uppercase mb-4">Услуги</p>
-            <h2 className="font-display text-4xl md:text-5xl">
-              Выберите <span className="text-gradient-gold italic">свой расклад</span>
-            </h2>
+      <section id="services" className="border-t border-ink/8">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-28">
+          <div className="flex items-baseline justify-between mb-16">
+            <h2 className="font-display font-light text-4xl md:text-5xl">Услуги</h2>
+            <p className="text-clay text-xs tracking-[0.35em] uppercase hidden sm:block">Цены и длительность</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="border-t border-ink/8">
             {SERVICES.map((s) => (
               <div
-                key={s.title}
-                className="glass-gold rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 group"
+                key={s.num}
+                className="group grid md:grid-cols-12 gap-4 items-center py-8 border-b border-ink/8 hover:bg-cream-deep/60 transition-colors -mx-6 px-6 lg:-mx-8 lg:px-8"
               >
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
-                  <Icon name={s.icon} className="text-gold" size={24} />
-                </div>
-                <h3 className="font-display text-2xl mb-2">{s.title}</h3>
-                <p className="text-foreground/60 text-sm leading-relaxed mb-5">{s.desc}</p>
-                <div className="flex items-center justify-between pt-4 border-t border-gold/10">
-                  <span className="flex items-center gap-1.5 text-foreground/60 text-sm">
-                    <Icon name="Clock" size={15} className="text-gold/70" /> {s.duration}
-                  </span>
-                  <span className="font-display text-xl text-gradient-gold">{s.price}</span>
-                </div>
+                <span className="md:col-span-1 text-clay/70 font-display text-xl">{s.num}</span>
+                <h3 className="md:col-span-4 font-display text-2xl md:text-3xl font-light group-hover:text-clay transition-colors">{s.title}</h3>
+                <p className="md:col-span-4 text-ink/55 text-sm leading-relaxed">{s.desc}</p>
+                <span className="md:col-span-2 text-ink/50 text-sm flex items-center gap-2">
+                  <Icon name="Clock" size={14} /> {s.duration}
+                </span>
+                <span className="md:col-span-1 font-display text-2xl text-right">{s.price}</span>
               </div>
             ))}
           </div>
@@ -263,29 +163,16 @@ const Index = () => {
       </section>
 
       {/* GALLERY */}
-      <section id="gallery" className="py-28">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-gold/80 text-sm tracking-[0.3em] uppercase mb-4">Галерея</p>
-            <h2 className="font-display text-4xl md:text-5xl">
-              Авторские <span className="text-gradient-gold italic">расклады</span>
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {GALLERY.map((g) => (
-              <div
-                key={g.title}
-                className="relative aspect-[3/4] rounded-2xl glass-gold overflow-hidden flex flex-col items-center justify-center gap-4 transition-all hover:-translate-y-1 group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-night-deep/80 to-transparent" />
-                <Icon
-                  name={g.icon}
-                  className="text-gold relative z-10 group-hover:animate-float"
-                  size={48}
-                />
-                <div className="relative z-10 text-center">
-                  <div className="font-display text-2xl">{g.title}</div>
-                  <div className="text-foreground/50 text-sm">{g.tag}</div>
+      <section id="gallery" className="border-t border-ink/8">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-28">
+          <h2 className="font-display font-light text-4xl md:text-5xl mb-16">Авторские расклады</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-ink/8 border border-ink/8">
+            {GALLERY.map((g, i) => (
+              <div key={g.title} className="bg-cream aspect-square p-8 flex flex-col justify-between group hover:bg-cream-deep transition-colors">
+                <span className="font-display text-clay/60 text-xl">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <div className="font-display text-2xl font-light mb-1 group-hover:text-clay transition-colors">{g.title}</div>
+                  <div className="text-ink/40 text-sm">{g.tag}</div>
                 </div>
               </div>
             ))}
@@ -294,28 +181,17 @@ const Index = () => {
       </section>
 
       {/* REVIEWS */}
-      <section id="reviews" className="py-28">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-gold/80 text-sm tracking-[0.3em] uppercase mb-4">Отзывы</p>
-            <h2 className="font-display text-4xl md:text-5xl">
-              Слова <span className="text-gradient-gold italic">благодарности</span>
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
+      <section id="reviews" className="border-t border-ink/8">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-28">
+          <h2 className="font-display font-light text-4xl md:text-5xl mb-16">Отзывы</h2>
+          <div className="grid md:grid-cols-3 gap-12">
             {REVIEWS.map((r) => (
-              <div key={r.name} className="glass-gold rounded-2xl p-7 transition-colors">
-                <div className="flex gap-1 mb-4 text-gold">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Icon key={i} name="Star" size={16} fallback="Star" />
-                  ))}
-                </div>
-                <p className="text-foreground/75 leading-relaxed italic mb-5">«{r.text}»</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-gold/15 flex items-center justify-center font-display text-gold">
-                    {r.name[0]}
-                  </div>
-                  <span className="font-medium">{r.name}</span>
+              <div key={r.name}>
+                <Icon name="Quote" size={28} className="text-clay/50 mb-6" />
+                <p className="font-display text-2xl font-light leading-snug mb-8">{r.text}</p>
+                <div className="flex items-center gap-3 pt-6 border-t border-ink/8">
+                  <span className="w-8 h-8 rounded-full bg-cream-deep flex items-center justify-center font-display text-clay">{r.name[0]}</span>
+                  <span className="text-sm text-ink/60">{r.name}</span>
                 </div>
               </div>
             ))}
@@ -324,20 +200,20 @@ const Index = () => {
       </section>
 
       {/* BOOKING */}
-      <section id="booking" className="py-28">
-        <div className="container mx-auto px-6">
-          <div className="glass-gold rounded-3xl p-8 md:p-14 max-w-4xl mx-auto relative overflow-hidden">
-            <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-gold/10 blur-3xl" />
-            <div className="relative">
-              <p className="text-gold/80 text-sm tracking-[0.3em] uppercase mb-4 text-center">Запись</p>
-              <h2 className="font-display text-4xl md:text-5xl text-center mb-3">
-                Выберите <span className="text-gradient-gold italic">свободный день</span>
+      <section id="booking" className="border-t border-ink/8 bg-ink text-cream">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-28">
+          <div className="grid md:grid-cols-12 gap-12">
+            <div className="md:col-span-5">
+              <p className="text-clay-soft text-xs tracking-[0.35em] uppercase mb-8">Запись</p>
+              <h2 className="font-display font-light text-5xl md:text-6xl leading-[0.95]">
+                Выберите<br />свободный<br /><span className="italic text-clay-soft">день</span>
               </h2>
-              <p className="text-foreground/60 text-center mb-10">
-                Консультации длятся 30–120 минут. Слоты обновляются ежедневно.
+              <p className="text-cream/50 mt-8 leading-relaxed max-w-sm">
+                Консультации длятся 30–120 минут. Свободные слоты обновляются ежедневно.
               </p>
-
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8">
+            </div>
+            <div className="md:col-span-7">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-px bg-cream/15 border border-cream/15 mb-8">
                 {SLOTS.map((s, i) => {
                   const full = s.free === 0;
                   const active = selected === i;
@@ -346,34 +222,32 @@ const Index = () => {
                       key={s.date}
                       disabled={full}
                       onClick={() => setSelected(i)}
-                      className={`rounded-2xl p-4 text-center transition-all border ${
+                      className={`p-6 text-center transition-colors ${
                         full
-                          ? 'opacity-40 cursor-not-allowed border-foreground/10'
+                          ? 'bg-ink text-cream/25 cursor-not-allowed'
                           : active
-                          ? 'border-gold bg-gold/15 -translate-y-1'
-                          : 'border-gold/15 hover:border-gold/40 hover:-translate-y-0.5'
+                          ? 'bg-cream text-ink'
+                          : 'bg-ink hover:bg-ink/60'
                       }`}
                     >
-                      <div className="text-foreground/60 text-xs uppercase tracking-wide">{s.day}</div>
-                      <div className="font-display text-xl my-1">{s.date}</div>
-                      <div className={`text-xs ${full ? 'text-foreground/40' : 'text-gold'}`}>
+                      <div className="text-xs uppercase tracking-wide opacity-60">{s.day}</div>
+                      <div className="font-display text-xl my-2">{s.date}</div>
+                      <div className={`text-xs ${full ? '' : active ? 'text-clay' : 'text-clay-soft'}`}>
                         {full ? 'нет мест' : `${s.free} свободно`}
                       </div>
                     </button>
                   );
                 })}
               </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <div className="flex items-center gap-2 text-foreground/70 text-sm">
-                  <Icon name="CalendarCheck" size={18} className="text-gold" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-6 border-t border-cream/15">
+                <span className="text-cream/60 text-sm">
                   {selected !== null && SLOTS[selected].free > 0
                     ? `Выбрано: ${SLOTS[selected].date} · осталось ${SLOTS[selected].free}`
                     : 'Выберите день для записи'}
-                </div>
-                <Button className="bg-gold hover:bg-gold-soft text-night font-medium rounded-full px-8 h-12">
+                </span>
+                <button className="bg-cream text-ink rounded-full px-8 py-4 text-sm tracking-wide hover:bg-clay-soft transition-colors">
                   Подтвердить запись
-                </Button>
+                </button>
               </div>
             </div>
           </div>
@@ -381,50 +255,37 @@ const Index = () => {
       </section>
 
       {/* CONTACTS / FOOTER */}
-      <footer id="contacts" className="py-20 border-t border-gold/10">
-        <div className="container mx-auto px-6 grid md:grid-cols-3 gap-10 items-start">
+      <footer id="contacts" className="border-t border-ink/8">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-24 grid md:grid-cols-3 gap-12">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Icon name="Moon" className="text-gold" size={22} />
-              <span className="font-display text-2xl text-gradient-gold">Анна · Таро</span>
-            </div>
-            <p className="text-foreground/60 text-sm max-w-xs">
-              Мистические расклады и бережные консультации онлайн и в Москве.
+            <div className="font-display text-3xl mb-4">Анна<span className="text-clay"> · Таро</span></div>
+            <p className="text-ink/50 text-sm max-w-xs leading-relaxed">
+              Расклады и бережные консультации онлайн и в Москве.
             </p>
           </div>
           <div>
-            <h4 className="font-display text-xl mb-4 text-gold">Контакты</h4>
-            <ul className="space-y-3 text-foreground/70 text-sm">
-              <li className="flex items-center gap-3">
-                <Icon name="Instagram" size={18} className="text-gold/70" />
-                <a
-                  href="https://www.instagram.com/anyayaninas/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-gold transition-colors"
-                >
-                  @anyayaninas
+            <p className="text-clay text-xs tracking-[0.35em] uppercase mb-6">Контакты</p>
+            <ul className="space-y-3 text-ink/70 text-sm">
+              <li>
+                <a href="https://www.instagram.com/anyayaninas/" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-clay transition-colors">
+                  <Icon name="Instagram" size={16} /> @anyayaninas
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Icon name="Send" size={18} className="text-gold/70" /> Telegram
-              </li>
-              <li className="flex items-center gap-3">
-                <Icon name="MapPin" size={18} className="text-gold/70" /> Москва · онлайн
-              </li>
+              <li className="flex items-center gap-3"><Icon name="Send" size={16} /> Telegram</li>
+              <li className="flex items-center gap-3"><Icon name="MapPin" size={16} /> Москва · онлайн</li>
             </ul>
           </div>
           <div>
-            <h4 className="font-display text-xl mb-4 text-gold">Часы приёма</h4>
-            <ul className="space-y-2 text-foreground/70 text-sm">
-              <li className="flex justify-between"><span>Пн — Пт</span><span className="text-gold/80">11:00 — 21:00</span></li>
-              <li className="flex justify-between"><span>Сб — Вс</span><span className="text-gold/80">12:00 — 18:00</span></li>
+            <p className="text-clay text-xs tracking-[0.35em] uppercase mb-6">Часы приёма</p>
+            <ul className="space-y-2 text-ink/70 text-sm">
+              <li className="flex justify-between max-w-[200px]"><span>Пн — Пт</span><span className="text-ink/50">11:00 — 21:00</span></li>
+              <li className="flex justify-between max-w-[200px]"><span>Сб — Вс</span><span className="text-ink/50">12:00 — 18:00</span></li>
             </ul>
           </div>
         </div>
-        <div className="hairline h-px my-10 container mx-auto" />
-        <p className="text-center text-foreground/40 text-xs">
-          © {new Date().getFullYear()} Анна · Таро. Сделано с любовью к звёздам.
+        <div className="hairline h-px max-w-6xl mx-auto" />
+        <p className="text-center text-ink/35 text-xs py-8">
+          © {new Date().getFullYear()} Анна · Таро
         </p>
       </footer>
     </div>
