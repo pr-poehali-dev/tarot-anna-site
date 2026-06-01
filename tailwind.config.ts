@@ -19,7 +19,15 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				display: ['"Cormorant Garamond"', 'serif'],
+				body: ['"Golos Text"', 'sans-serif']
+			},
 			colors: {
+				gold: '#d4af6a',
+				'gold-soft': '#e8d3a0',
+				night: '#0a0b14',
+				'night-deep': '#06070d',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -71,25 +79,47 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'fade-up': {
+					'0%': { opacity: '0', transform: 'translateY(30px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-14px)' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'twinkle': {
+					'0%, 100%': { opacity: '0.2' },
+					'50%': { opacity: '1' }
+				},
+				'glow': {
+					'0%, 100%': { boxShadow: '0 0 20px rgba(212,175,106,0.2)' },
+					'50%': { boxShadow: '0 0 45px rgba(212,175,106,0.5)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-up': 'fade-up 0.8s ease-out forwards',
+				'fade-in': 'fade-in 1s ease-out forwards',
+				'float': 'float 6s ease-in-out infinite',
+				'spin-slow': 'spin-slow 40s linear infinite',
+				'twinkle': 'twinkle 3s ease-in-out infinite',
+				'glow': 'glow 3s ease-in-out infinite'
 			}
 		}
 	},
