@@ -24,11 +24,12 @@ export default {
 				body: ['"Golos Text"', 'sans-serif']
 			},
 			colors: {
-				cream: '#f4f1ea',
-				'cream-deep': '#ebe6db',
-				ink: '#1c1a17',
-				clay: '#8a7a63',
-				'clay-soft': '#b7a98f',
+				night: '#0b0718',
+				'night-deep': '#070411',
+				gold: '#e8c275',
+				'gold-soft': '#f5e4ba',
+				violet: '#7c5cff',
+				'violet-soft': '#b9a4ff',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

@@ -96,15 +96,61 @@
   }
 
   body {
-    @apply bg-cream text-ink font-body;
+    @apply bg-night text-gold-soft font-body;
   }
+}
+
+.bg-mystic {
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 50% -5%,
+      rgba(124, 92, 255, 0.28),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 95% 30%,
+      rgba(232, 194, 117, 0.14),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 70% 60% at 5% 80%,
+      rgba(124, 92, 255, 0.22),
+      transparent
+    ),
+    #0b0718;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(120deg, #f5e4ba 0%, #e8c275 40%, #b9a4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(232, 194, 117, 0.16);
+  transition:
+    border-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.glass:hover {
+  border-color: rgba(232, 194, 117, 0.5);
+  box-shadow: 0 20px 60px -20px rgba(124, 92, 255, 0.4);
 }
 
 .hairline {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(138, 122, 99, 0.4),
+    rgba(232, 194, 117, 0.5),
     transparent
   );
+}
+
+.text-glow {
+  text-shadow: 0 0 40px rgba(124, 92, 255, 0.5);
 }
